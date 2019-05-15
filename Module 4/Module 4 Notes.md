@@ -8,4 +8,11 @@ When the VM is stopped/moved/reallocated the names of the NICs in the OS might c
 
 #### Azure DNS
 
+https://docs.microsoft.com/en-us/azure/dns/dns-getstarted-portal
+
+azure private dns resolution
+
+nslookup www.contoso.xyz ns1-08.azure-dns.com.
+
 #### NSGs
+
