@@ -4,16 +4,16 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
+      "defaultValue": "localadmin",
       "metadata": {
-        "description": "Username for the Virtual Machine.",
-        "defaultValue": "localadmin"
+        "description": "Username for the Virtual Machine."
       }
     },
     "adminPassword": {
       "type": "securestring",
+      "defaultValue": "Pa55w.rd1234",
       "metadata": {
         "description": "Password for the Virtual Machine.",
-        "defaultValue": "Pa55w.rd1234"
       }
     },
     "dnsLabelPrefix": {
