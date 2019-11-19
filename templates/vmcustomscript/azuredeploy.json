@@ -218,7 +218,7 @@
     {
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
+    "name": "[concat(variables('vmName'),'/', 'Installcustomscript')]",
     "location": "[parameters('location')]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
@@ -230,9 +230,9 @@
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
+                "https://raw.githubusercontent.com/kramit/AZ103-Notes/master/templates/vmcustomscript/customscript.ps1"
             ],
-            "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
+            "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File customscript.ps1"
         }
     }
 }
