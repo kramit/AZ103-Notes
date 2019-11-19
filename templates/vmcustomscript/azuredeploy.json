@@ -13,7 +13,11 @@
       "type": "securestring",
       "defaultValue": "Pa55w.rd1234",
       "metadata": {
+<<<<<<< HEAD
         "description": "Password for the Virtual Machine.",
+=======
+        "description": "Password for the Virtual Machine."
+>>>>>>> parent of 713a9a0... Update azuredeploy.json
       }
     },
     "dnsLabelPrefix": {
