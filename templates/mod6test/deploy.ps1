@@ -4,7 +4,7 @@ Param(
     $location = 'eastus'
 )
 
-$rgNames = 'az104-06-rg01','az104-06-rg02','az104-06-rg03'
+$rgNames = 'az104-06-rg01','az104-06-rg2','az104-06-rg3'
 $namesuffixcount = 0
 foreach ($rgname in $rgNames) {
 
@@ -16,7 +16,7 @@ New-AzResourceGroupDeployment `
    -ResourceGroupName $rgName `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
    -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
-   -nameSuffix [string]$namesuffixcount `
+   -nameSuffix 3 `
    -AsJob
 }
 
