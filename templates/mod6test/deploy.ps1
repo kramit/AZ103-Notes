@@ -13,8 +13,8 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 New-AzResourceGroupDeployment `
    -ResourceGroupName $rgName `
-   -TemplateFile az104-06-vms-template.json `
-   -TemplateParameterFile az104-06-vm-parameters.json `
+   -TemplateFile "$pwd/az104-06-vms-template.json" `
+   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
    -AsJob
 
 
