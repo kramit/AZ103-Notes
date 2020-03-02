@@ -5,20 +5,40 @@ Param(
 )
 
 $rgNames = 'az104-06-rg01','az104-06-rg2','az104-06-rg3'
-$namesuffixcount = 0
 foreach ($rgname in $rgNames) {
-
-    $namesuffixcount = $namesuffixcount++
-    Write-Host "Creating Resource Group $rgname in $location as a background job" -ForegroundColor Yellow
+    Write-Host "Creating Resource Group $rgname"
 New-AzResourceGroup -Name $rgName -Location $location
 
+}
+
+sleep 5
+
+# This cant be put in a normal foreach becuase is messes with the way -namesuffix is populated in the ARM template by
+# the New-AzresourceGroupDeployment command
+
 New-AzResourceGroupDeployment `
-   -ResourceGroupName $rgName `
+   -ResourceGroupName $rgName[0] `
+   -TemplateFile "$pwd/az104-06-vms-template.json" `
+   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
+   -nameSuffix  `
+   -AsJob
+
+   New-AzResourceGroupDeployment `
+   -ResourceGroupName $rgName[1] `
+   -TemplateFile "$pwd/az104-06-vms-template.json" `
+   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
+   -nameSuffix 2`
+   -AsJob
+
+
+   New-AzResourceGroupDeployment `
+   -ResourceGroupName $rgName[2] `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
    -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
    -nameSuffix 3 `
    -AsJob
-}
+
+
 
 Write-Host "Showing active powershell background jobs (note, this is a static output)"
 
