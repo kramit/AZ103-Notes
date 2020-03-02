@@ -16,7 +16,7 @@ New-AzResourceGroupDeployment `
    -ResourceGroupName $rgName `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
    -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
-   -nameSuffix $namesuffixcount
+   -nameSuffix [string]$namesuffixcount `
    -AsJob
 }
 
