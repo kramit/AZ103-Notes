@@ -24,5 +24,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgNames[2] -TemplateFile $pwd/
 
 Write-Host "Showing active powershell background jobs (note, this is a static output)"
 
-Get-Job
+Get-Job | select Name, Command
 
