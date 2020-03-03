@@ -27,7 +27,7 @@ New-AzResourceGroupDeployment `
    -ResourceGroupName $rgName[1] `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
    -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
-   -nameSuffix 2`
+   -nameSuffix "2"`
    -AsJob
 
 
@@ -35,7 +35,7 @@ New-AzResourceGroupDeployment `
    -ResourceGroupName $rgName[2] `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
    -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
-   -nameSuffix 3 `
+   -nameSuffix "3" `
    -AsJob
 
 
