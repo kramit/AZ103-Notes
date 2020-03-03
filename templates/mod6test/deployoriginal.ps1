@@ -1,4 +1,4 @@
-$location = 'uksouth'
+$location = 'eastus'
 
 $rgName = 'az104-06-rg01'
 
