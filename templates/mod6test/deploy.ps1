@@ -16,26 +16,9 @@ sleep 5
 # This cant be put in a normal foreach becuase is messes with the way -namesuffix is populated in the ARM template by
 # the New-AzresourceGroupDeployment command
 
-New-AzResourceGroupDeployment `
-   -ResourceGroupName $rgNames[0] `
-   -TemplateFile "$pwd/az104-06-vms-template.json" `
-   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json"  `
-   -AsJob
-
-   New-AzResourceGroupDeployment `
-   -ResourceGroupName $rgNames[1] `
-   -TemplateFile "$pwd/az104-06-vms-template.json" `
-   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
-   -nameSuffix "2"`
-   -AsJob
-
-
-   New-AzResourceGroupDeployment `
-   -ResourceGroupName $rgNames[2] `
-   -TemplateFile "$pwd/az104-06-vms-template.json" `
-   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
-   -nameSuffix "3" `
-   -AsJob
+New-AzResourceGroupDeployment -ResourceGroupName $rgNames[0] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -nameSuffix 1 -AsJob
+New-AzResourceGroupDeployment -ResourceGroupName $rgNames[1] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -nameSuffix 2 -AsJob
+New-AzResourceGroupDeployment -ResourceGroupName $rgNames[2] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -nameSuffix 3 -AsJob
 
 
 
