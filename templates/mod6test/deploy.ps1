@@ -17,14 +17,13 @@ sleep 5
 # the New-AzresourceGroupDeployment command
 
 New-AzResourceGroupDeployment `
-   -ResourceGroupName $rgName[0] `
+   -ResourceGroupName $rgNames[0] `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
-   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
-   -nameSuffix  `
+   -TemplateParameterFile "$pwd/az104-06-vm-parameters.json"  `
    -AsJob
 
    New-AzResourceGroupDeployment `
-   -ResourceGroupName $rgName[1] `
+   -ResourceGroupName $rgNames[1] `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
    -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
    -nameSuffix "2"`
@@ -32,7 +31,7 @@ New-AzResourceGroupDeployment `
 
 
    New-AzResourceGroupDeployment `
-   -ResourceGroupName $rgName[2] `
+   -ResourceGroupName $rgNames[2] `
    -TemplateFile "$pwd/az104-06-vms-template.json" `
    -TemplateParameterFile "$pwd/az104-06-vm-parameters.json" `
    -nameSuffix "3" `
