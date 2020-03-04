@@ -13,7 +13,8 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 sleep 5
 
-# This cant be put in a normal foreach becuase is messes with the way -namesuffix is populated in the ARM template by
+# This cant be put in a normal foreach becuase is messes with the way -namesuffix is populated 
+# in the ARM template by
 # the New-AzresourceGroupDeployment command
 
 New-AzResourceGroupDeployment -ResourceGroupName $rgNames[0] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -nameSuffix 1 -AsJob
