@@ -12,6 +12,7 @@
       "nameSuffix": {
         "type": "string",
         "allowedValues": [
+          "1",  
           "2",
           "3"
         ],
