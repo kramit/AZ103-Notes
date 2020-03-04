@@ -17,7 +17,7 @@ sleep 5
 # in the ARM template by
 # the New-AzresourceGroupDeployment command
 
-New-AzResourceGroupDeployment -ResourceGroupName $rgNames[0] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -nameSuffix 1 -AsJob
+New-AzResourceGroupDeployment -ResourceGroupName $rgNames[0] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -AsJob
 New-AzResourceGroupDeployment -ResourceGroupName $rgNames[1] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -nameSuffix 2 -AsJob
 New-AzResourceGroupDeployment -ResourceGroupName $rgNames[2] -TemplateFile $pwd/az104-06-vm-template.json -TemplateParameterFile $pwd/az104-06-vm-parameters.json -nameSuffix 3 -AsJob
 
