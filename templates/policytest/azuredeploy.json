@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "type": "string"
+    },
+    "rgLocation": {
+      "type": "string",
+      "defaultValue": "eastus"
+    }
+
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2018-05-01",
+      "name": "[parameters('rgName')]",
+      "location": "[parameters('rgLocation')]",
+      "properties": {}
+    },
+    {
+        "type": "Microsoft.Authorization/policyDefinitions",
+        "apiVersion": "2018-05-01",
+        "name": "locationpolicy",
+        "properties": {
+          "policyType": "Custom",
+          "parameters": {},
+          "policyRule": {
+            "if": {
+              "field": "location",
+              "equals": "northeurope"
+            },
+            "then": {
+              "effect": "deny"
+            }
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Authorization/policyAssignments",
+        "apiVersion": "2018-05-01",
+        "name": "location-lock",
+        "dependsOn": [
+          "locationpolicy"
+        ],
+        "properties": {
+          "scope": "[subscription().id]",
+          "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        }
+      }
+        
+  ],
+  "outputs": {}
+}

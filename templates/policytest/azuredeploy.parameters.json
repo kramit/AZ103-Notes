@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "value": "az104-06-rg01"
+    },
+    "rgName2": {
+      "value": "az104-06-rg02"
+    },
+    "rgLocation": {
+      "value": "eastus"
+    }
+  }
+}
