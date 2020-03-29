@@ -4,9 +4,6 @@
   "parameters": {
     "rgName": {
       "value": "az104-06-rg01"
-    },
-    "rgLocation": {
-      "value": "eastus"
     }
   }
 }
