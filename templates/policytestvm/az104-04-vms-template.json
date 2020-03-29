@@ -231,43 +231,12 @@
             }
         },
         {
-            "type": "Microsoft.Authorization/policyDefinitions",
-            "apiVersion": "2018-05-01",
-            "name": "lockvms",
-            "properties": {
-                "policyType": "Custom",
-                "parameters": {
-                },
-                "policyRule": {
-                    "if": {
-                        "allOf": [
-                            {
-                                "field": "type",
-                                "equals": "Microsoft.Compute/virtualMachines"
-                            },
-                            {
-                                "not": {
-                                    "field": "Microsoft.Compute/virtualMachines/sku.name",
-                                    "in": [
-                                        "Standard_DS3_v2"
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    "then": {
-                        "effect": "Deny"
-                    }
-                }
-            }
-        },
-        {
             "type": "Microsoft.Authorization/policyAssignments",
             "apiVersion": "2018-05-01",
-            "name": "lockvms",
+            "name": "vmrestriction",
             "properties": {
                 "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]",
-                "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'lockvms')]"
+                "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'vmrestriction')]"
             }
         }
     ],
