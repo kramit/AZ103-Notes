@@ -7,14 +7,18 @@
             "metadata": {
                 "displayName": "Policy definition name",
                 "description": "Name of the policy to assign."
-            }
+            },
+                        "defaultValue": "vmrestriction"
+
         },
         "policyAssignmentName": {
             "type": "string",
             "metadata": {
                 "displayName": "Policy assignment name",
                 "description": "Name to use for a specific policy assignment."
-            }
+            },
+                        "defaultValue": "vmrestriction policy to an RG"
+
         },
         "resourceGroupName": {
             "type": "string",
@@ -23,7 +27,7 @@
                 "description": "Optional resource group name to limit the policy scope.",
                 "strongType": "existingResourceGroups"
             },
-            "defaultValue": ""
+            "defaultValue": "testing"
         },
         "policyAssignmentMode": {
             "type": "string",
