@@ -2,6 +2,15 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+         "policyDefinitionName": {
+            "type": "string",
+            "metadata": {
+                "displayName": "Policy definition name",
+                "description": "Name of the policy to assign."
+            },
+                        "defaultValue": "vmrestriction"
+
+        },
         "rgName": {
             "type": "string",
             "defaultValue": "[resourceGroup().name]",
@@ -235,8 +244,9 @@
             "apiVersion": "2018-05-01",
             "name": "vmrestriction",
             "properties": {
-                "scope": "[subscription().id]",
-                "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'vmrestriction')]"
+             "scope": "[if(empty(parameters('rgName')), subscription().id, concat(subscription().id, '/resourceGroups/', parameters('rgName')))]",
+                "enforcementMode": "Default",
+                "policyDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/policyDefinitions/', parameters('policyDefinitionName'))]"
             }
         }
     ],
