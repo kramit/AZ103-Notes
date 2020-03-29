@@ -241,7 +241,7 @@
         },
         {
             "type": "Microsoft.Authorization/policyAssignments",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2019-09-01",
             "name": "vmrestriction",
             "properties": {
              "scope": "[if(empty(parameters('rgName')), subscription().id, concat(subscription().id, '/resourceGroups/', parameters('rgName')))]",
