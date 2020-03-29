@@ -233,7 +233,7 @@
         {
             "type": "Microsoft.Authorization/policyDefinitions",
             "apiVersion": "2018-05-01",
-            "name": "locationpolicy",
+            "name": "lockvms",
             "properties": {
                 "policyType": "Custom",
                 "parameters": {
@@ -264,13 +264,10 @@
         {
             "type": "Microsoft.Authorization/policyAssignments",
             "apiVersion": "2018-05-01",
-            "name": "location-lock",
-            "dependsOn": [
-                "locationpolicy"
-            ],
+            "name": "lockvms",
             "properties": {
                 "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]",
-                "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+                "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'lockvms')]"
             }
         }
     ],
