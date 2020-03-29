@@ -5,9 +5,6 @@
     "rgName": {
       "value": "az104-06-rg01"
     },
-    "rgName2": {
-      "value": "az104-06-rg02"
-    },
     "rgLocation": {
       "value": "eastus"
     }
