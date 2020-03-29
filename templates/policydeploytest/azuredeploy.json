@@ -2,10 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "rgName": {
-      "type": "string"
-    }
-
   },
   "variables": {
   },
@@ -13,7 +9,7 @@
     {
       "type": "Microsoft.Authorization/policyDefinitions",
       "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
+      "name": "vmrestriction",
       "properties": {
         "policyType": "Custom",
         "parameters": {
@@ -39,18 +35,6 @@
             "effect": "Deny"
           }
         }
-      }
-    },
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-05-01",
-      "name": "location-lock",
-      "dependsOn": [
-        "locationpolicy"
-      ],
-      "properties": {
-        "scope": "[concat('/subscription/', subscription().Id, '/resourceGroups/', resourceGroup().name)]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
 
