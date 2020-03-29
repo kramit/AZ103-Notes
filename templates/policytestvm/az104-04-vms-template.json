@@ -235,7 +235,7 @@
             "apiVersion": "2018-05-01",
             "name": "vmrestriction",
             "properties": {
-                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]",
+                "scope": "[subscription().id]",
                 "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'vmrestriction')]"
             }
         }
