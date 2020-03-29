@@ -1,0 +1,1 @@
+New-AzResourceGroupDeployment -ResourceGroupName "testing" -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
